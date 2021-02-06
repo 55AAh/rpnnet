@@ -1,0 +1,16 @@
+[package]
+name = "rp_nnet"
+version = "0.1.0"
+authors = ["55AAh <kostya.kulik@gmail.com>"]
+edition = "2018"
+
+[lib]
+name = "rpnnet"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies.pyo3]
+version = "0.13.1"
+features = ["extension-module"]
+
+[dependencies]
+rand = "0.8.2"

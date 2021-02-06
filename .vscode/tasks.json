@@ -1,0 +1,51 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"windows": {
+				"command": "cargo build; cmd /c 'mklink /H target\\debug\\rpnnet.pyd target\\debug\\rpnnet.dll >NUL 2>NUL'; exit '/b 0'",
+			},
+			"linux": {
+				"command": "cargo build; ln target/debug/librpnnet.so target/debug/rpnnet.so 2>/dev/null"
+			},
+			"problemMatcher": [
+				"$rustc"
+			],
+			"group": "build",
+			"label": "build",
+			"presentation": {
+				"clear": true
+			},
+		},
+		{
+			"type": "shell",
+			"windows": {
+				"command": "cargo build --release; cmd /c 'mklink /H target\\release\\rpnnet.pyd target\\release\\rpnnet.dll >NUL 2>NUL'; exit '/b 0'",
+			},
+			"linux": {
+				"command": "cargo build --release; ln target/release/librpnnet.so target/release/rpnnet.so 2>/dev/null"
+			},
+			"problemMatcher": [
+				"$rustc"
+			],
+			"group": "build",
+			"label": "build release",
+			"presentation": {
+				"clear": true
+			},
+		},
+		{
+			"type": "cargo",
+			"command": "clean",
+			"problemMatcher": [
+				"$rustc"
+			],
+			"group": "build",
+			"label": "clean",
+			"presentation": {
+				"clear": true
+			},
+		},
+	]
+}
